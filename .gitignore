@@ -1,0 +1,26 @@
+# Godot 4.x .gitignore
+
+# Godot 缓存和导入目录
+.godot/
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 导出模板
+export_presets.cfg
+
+# 用户数据目录
+user://
+
+# 临时文件
+*.tmp
+*.bak
+*.swp
+*~
+
+# AI文件
+.claude/
+CLAUDE.MD
+

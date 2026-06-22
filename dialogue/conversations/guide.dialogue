@@ -1,0 +1,20 @@
+~ start
+
+SmallTobby: [[Hello|Hi|Howdy]], nice to meet you!
+SmallTobby: Welcome to your new farm.
+SmallTobby: As you can see the cows and chickens are hungry.
+SmallTobby: You need to grow some crops to feed them.
+SmallTobby: Here are some seed to grow some crops.
+- Take Crop Seeds
+	Player: Yeah I can grow crops
+	do GameDialogueManager.action_give_crop_seeds()
+- No, I don't want them
+	Player: I'm not ready to grow my farm yet.
+
+=> END
+
+~ crop_given
+
+SmallTobby: Go and plant! Your field is waiting for you.
+
+=> END

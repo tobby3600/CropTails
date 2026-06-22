@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://dyn63t6513i5j"]
+
+[ext_resource type="Texture2D" uid="uid://drhi4gekjiuua" path="res://assets/game/objects/basic_grass_biom_things.png" id="1_hy6me"]
+[ext_resource type="Shader" path="res://scenes/objects/rocks/shake.gdshader" id="1_ypy06"]
+[ext_resource type="Script" path="res://scenes/objects/rocks/rock.gd" id="2_wujni"]
+[ext_resource type="PackedScene" uid="uid://dm48k13gux8i4" path="res://scenes/components/hurt_component.tscn" id="3_ipwki"]
+[ext_resource type="PackedScene" uid="uid://cfd5wex2e1vr3" path="res://scenes/components/damage_component.tscn" id="4_q0gso"]
+[ext_resource type="PackedScene" path="res://scenes/objects/rocks/mining_particles.tscn" id="5_hgaca"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52qf0"]
+resource_local_to_scene = true
+shader = ExtResource("1_ypy06")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d1rp"]
+atlas = ExtResource("1_hy6me")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ly6dh"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5m6r7"]
+radius = 7.0
+
+[node name="Rock" type="Sprite2D"]
+material = SubResource("ShaderMaterial_52qf0")
+position = Vector2(0, -3)
+texture = SubResource("AtlasTexture_0d1rp")
+script = ExtResource("2_wujni")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_ly6dh")
+
+[node name="HurtComponent" parent="." instance=ExtResource("3_ipwki")]
+tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CircleShape2D_5m6r7")
+debug_color = Color(0.867798, 0.119922, 0.804735, 0.42)
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_q0gso")]
+max_damage = 5
+
+[node name="MiningParticles" parent="." instance=ExtResource("5_hgaca")]

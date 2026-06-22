@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b63moi20sskpl"]
+
+[ext_resource type="Material" uid="uid://bp146tap33xyh" path="res://scenes/objects/plants/watering_particle_process_material.tres" id="1_dl4d3"]
+
+[node name="WateringParticles" type="GPUParticles2D" unique_id=725394568]
+amount = 16
+process_material = ExtResource("1_dl4d3")

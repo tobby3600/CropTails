@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c24pv2rjmb4ya"]
+
+[ext_resource type="Texture2D" uid="uid://drhi4gekjiuua" path="res://assets/game/objects/basic_grass_biom_things.png" id="1_5ra1q"]
+[ext_resource type="Shader" uid="uid://dd7f7nw7rtpvo" path="res://scenes/objects/trees/shake.gdshader" id="1_f4r0g"]
+[ext_resource type="Script" uid="uid://b4pi61o8pkc6f" path="res://scenes/objects/trees/large_tree.gd" id="2_fbjal"]
+[ext_resource type="PackedScene" uid="uid://dm48k13gux8i4" path="res://scenes/components/hurt_component.tscn" id="2_lpfci"]
+[ext_resource type="PackedScene" uid="uid://cfd5wex2e1vr3" path="res://scenes/components/damage_component.tscn" id="3_f4y5u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k21gy"]
+resource_local_to_scene = true
+shader = ExtResource("1_f4r0g")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 15.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr40f"]
+atlas = ExtResource("1_5ra1q")
+region = Rect2(16, 0, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibu7l"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sj7f0"]
+size = Vector2(14, 24)
+
+[node name="LargeTree" type="Sprite2D" unique_id=743563705]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_k21gy")
+position = Vector2(0, -7)
+texture = SubResource("AtlasTexture_tr40f")
+offset = Vector2(0, -5)
+script = ExtResource("2_fbjal")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=89387460]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=743633527]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_ibu7l")
+
+[node name="HurtComponent" parent="." unique_id=2094610304 instance=ExtResource("2_lpfci")]
+tool = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1587247178]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_sj7f0")
+debug_color = Color(0.832804, 0.180669, 0.844005, 0.42)
+
+[node name="DamageComponent" parent="." unique_id=1585761559 instance=ExtResource("3_f4y5u")]
+max_damage = 6

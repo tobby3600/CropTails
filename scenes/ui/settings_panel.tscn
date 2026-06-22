@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dyaly2vllqixh"]
+
+[ext_resource type="Script" uid="uid://c2alcfqs4nwms" path="res://scenes/ui/settings_panel.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://buixqjwfxmeod" path="res://scenes/ui/game_ui_theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" uid="uid://05id67wdupiw" path="res://assets/ui/basic_ui_sprites.png" id="3_i3lpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4opj"]
+atlas = ExtResource("3_i3lpr")
+region = Rect2(770, 226, 12, 12)
+
+[node name="SettingsPanel" type="PanelContainer" unique_id=1384710898]
+custom_minimum_size = Vector2(250, 220)
+offset_right = 250.0
+offset_bottom = 220.0
+theme = ExtResource("2_theme")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("1_script")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1111100345]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=465694455]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=494955996]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Header" unique_id=2096780986]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTINGS"
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/Header" unique_id=1608455565]
+layout_mode = 2
+theme_type_variation = &"DayAndNightButton"
+icon = SubResource("AtlasTexture_u4opj")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=2040479766]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1102262434]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_vertical = 3
+scroll_hint_mode = 1
+
+[node name="Content" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=430917533]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="GeneralLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Content" unique_id=2139072689]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.7, 0.5, 1)
+text = "GENERAL"
+
+[node name="Language" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/Content" unique_id=2002215723]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/Language" unique_id=2044784387]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "LANGUAGE"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/Language" unique_id=1335135456]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/ScrollContainer/Content" unique_id=1381818051]
+layout_mode = 2
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Content" unique_id=419547968]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.7, 0.5, 1)
+text = "SOUND"
+
+[node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/Content" unique_id=1331580358]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/MusicVolume" unique_id=675236598]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "BGM"
+
+[node name="PercentLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/MusicVolume" unique_id=1679058658]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "100"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/MusicVolume" unique_id=1519309849]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SettingHSlider"
+value = 100.0
+
+[node name="SfxVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/Content" unique_id=1268585816]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/SfxVolume" unique_id=193932220]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "SFX"
+
+[node name="PercentLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/SfxVolume" unique_id=975518768]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "100"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/SfxVolume" unique_id=251270509]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SettingHSlider"
+value = 100.0

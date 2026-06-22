@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bfpf507y267y"]
+
+[ext_resource type="Script" uid="uid://ce70sbjvknj8a" path="res://scenes/objects/plants/tomato.gd" id="1_i4hd5"]
+[ext_resource type="Texture2D" uid="uid://d33jbd4gpnd2s" path="res://assets/game/objects/basic_plants.png" id="1_tixv0"]
+[ext_resource type="PackedScene" uid="uid://b63moi20sskpl" path="res://scenes/objects/plants/watering_particles.tscn" id="2_axu4e"]
+[ext_resource type="PackedScene" uid="uid://bwtygklnfjbdp" path="res://scenes/objects/plants/flowering_particles.tscn" id="3_vn5rf"]
+[ext_resource type="PackedScene" uid="uid://bc1l2bl2j6tj8" path="res://scenes/components/growth_cycle_component.tscn" id="4_i4hd5"]
+[ext_resource type="PackedScene" uid="uid://dm48k13gux8i4" path="res://scenes/components/hurt_component.tscn" id="5_vn5rf"]
+[ext_resource type="PackedScene" uid="uid://dbwv2sgdejjys" path="res://scenes/components/save_data_component.tscn" id="7_83wcf"]
+[ext_resource type="Resource" path="res://resources/crop_data_resource.tres" id="8_wpajg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4hd5"]
+size = Vector2(12, 7.25)
+
+[node name="Tomato" type="Node2D" unique_id=924432124]
+y_sort_enabled = true
+script = ExtResource("1_i4hd5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1352805522]
+y_sort_enabled = true
+position = Vector2(0, -3)
+texture = ExtResource("1_tixv0")
+offset = Vector2(0, -4)
+hframes = 6
+vframes = 2
+frame = 7
+
+[node name="WateringParticles" parent="." unique_id=725394568 instance=ExtResource("2_axu4e")]
+
+[node name="FloweringParticles" parent="." unique_id=735427724 instance=ExtResource("3_vn5rf")]
+
+[node name="GrowthCycleComponent" parent="." unique_id=1564795662 instance=ExtResource("4_i4hd5")]
+
+[node name="HurtComponent" parent="." unique_id=1900600980 instance=ExtResource("5_vn5rf")]
+tool = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1374336560]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_i4hd5")
+
+[node name="SaveDataComponent" parent="." unique_id=2101516997 instance=ExtResource("7_83wcf")]
+save_data_resource = ExtResource("8_wpajg")

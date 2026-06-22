@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bwl3c4tjrcyve"]
+
+[ext_resource type="Script" uid="uid://ckej78xbt02jm" path="res://scenes/components/day_night_cycle_component.gd" id="1_76coa"]
+
+[sub_resource type="Gradient" id="Gradient_76coa"]
+offsets = PackedFloat32Array(0, 0.2, 0.35, 0.45, 0.5, 0.55, 0.65, 0.8, 1)
+colors = PackedColorArray(0.08, 0.08, 0.2, 1, 0.1, 0.1, 0.25, 1, 0.25, 0.2, 0.4, 1, 0.7, 0.4, 0.25, 1, 0.95, 0.65, 0.35, 1, 0.95, 0.85, 0.7, 1, 1, 0.95, 0.85, 1, 1, 0.98, 0.92, 1, 1, 0.98, 0.92, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_02hyl"]
+gradient = SubResource("Gradient_76coa")
+
+[sub_resource type="Curve" id="Curve_sun"]
+_limits = [0.0, 0.2, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24891774, 0.103571415), 0.0, 0.0, 0, 0, Vector2(0.3917749, 0.16071427), 0.0, 0.0, 0, 0, Vector2(0.504329, 0.1785714), 0.0, 0.0, 0, 0, Vector2(0.5995671, 0.16071427), 0.0, 0.0, 0, 0, Vector2(0.7597403, 0.099999994), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 12
+
+[sub_resource type="Curve" id="Curve_moon"]
+_limits = [0.0, 0.2, 0.0, 1.0]
+_data = [Vector2(1e-05, 0.15267858), 0.0, 0.0, 0, 0, Vector2(0.3181818, 0), 0.0, 0.0, 0, 0, Vector2(0.6818182, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.15), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="DayNightCycleComponent" type="CanvasModulate" unique_id=1390949108]
+script = ExtResource("1_76coa")
+day_night_gradient_texture = SubResource("GradientTexture1D_02hyl")
+sun_light_curve = SubResource("Curve_sun")
+moon_light_curve = SubResource("Curve_moon")
+
+[node name="SunLight" type="DirectionalLight2D" parent="." unique_id=1279225320]
+color = Color(1, 0.95, 0.9, 1)
+energy = 0.0
+
+[node name="MoonLight" type="DirectionalLight2D" parent="." unique_id=524174586]
+color = Color(0.7, 0.8, 1, 1)
+energy = 0.0

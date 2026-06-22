@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://4gvi1skgp1w4"]
+
+[ext_resource type="Theme" uid="uid://buixqjwfxmeod" path="res://scenes/ui/game_ui_theme.tres" id="1_5slcd"]
+[ext_resource type="PackedScene" uid="uid://crrryky2cc07u" path="res://scenes/ui/game_menu_screen_background.tscn" id="1_arotu"]
+[ext_resource type="Script" uid="uid://btagcrs4r1fjs" path="res://scenes/ui/game_menu_screen.gd" id="1_l5nq4"]
+[ext_resource type="PackedScene" uid="uid://d2ab0ln2xt7fa" path="res://scenes/components/mouse_cursor_component.tscn" id="2_jk4o3"]
+[ext_resource type="Texture2D" uid="uid://bspsifpgawjvh" path="res://assets/ui/mouse_icon.png" id="3_vrg0q"]
+[ext_resource type="PackedScene" uid="uid://dyaly2vllqixh" path="res://scenes/ui/settings_panel.tscn" id="4_settings"]
+[ext_resource type="Texture2D" uid="uid://05id67wdupiw" path="res://assets/ui/basic_ui_sprites.png" id="6_16g87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhbvg"]
+atlas = ExtResource("6_16g87")
+region = Rect2(658, 194, 12, 12)
+
+[node name="GameMenuScreen" type="CanvasLayer" unique_id=311031426]
+process_mode = 3
+script = ExtResource("1_l5nq4")
+
+[node name="MouseCursorComponent" parent="." unique_id=431577553 instance=ExtResource("2_jk4o3")]
+cursor_component_texture = ExtResource("3_vrg0q")
+
+[node name="GameMenuScreenBackground" parent="." unique_id=2077878271 instance=ExtResource("1_arotu")]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=475344908]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5slcd")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=38676682]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer" unique_id=1715461244]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.44204858, 0.30014, 0.20656791, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.67058825)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 54
+text = "CROPTAILS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=35883527]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1245685659]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "START_GAME"
+
+[node name="SaveGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=227956030]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "SAVE_GAME"
+
+[node name="ResumeGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1050245838]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "RESUME"
+
+[node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1225464373]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "EXIT"
+
+[node name="SettingsButton" type="Button" parent="." unique_id=748326432]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme = ExtResource("1_5slcd")
+theme_type_variation = &"DayAndNightButton"
+icon = SubResource("AtlasTexture_nhbvg")
+icon_alignment = 1
+expand_icon = true
+
+[node name="SettingsPanel" parent="." unique_id=348254673 instance=ExtResource("4_settings")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -100.0
+offset_right = 125.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="_on_save_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeGameButton" to="." method="_on_resume_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

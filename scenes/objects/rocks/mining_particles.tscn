@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bqk1ew7n3pt8m"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rock_mining"]
+particle_flag_disable_z = true
+spread = 150.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+gravity = Vector3(0, -120, 0)
+damping_min = 4.0
+damping_max = 8.0
+scale_min = 0.5
+scale_max = 1.5
+color = Color(0.55, 0.55, 0.55, 1)
+
+[node name="MiningParticles" type="GPUParticles2D" unique_id=1846160846]
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_rock_mining")
