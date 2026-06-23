@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4opj"]
 atlas = ExtResource("3_i3lpr")
-region = Rect2(770, 226, 12, 12)
+region = Rect2(674, 226, 12, 12)
 
 [node name="SettingsPanel" type="PanelContainer" unique_id=1384710898]
 custom_minimum_size = Vector2(250, 220)
@@ -72,6 +72,21 @@ text = "LANGUAGE"
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/Language" unique_id=1335135456]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="AutoTorch" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/Content" unique_id=467423658]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/AutoTorch" unique_id=884785844]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "AUTO TORCH"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/Content/AutoTorch" unique_id=1840671711]
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/ScrollContainer/Content" unique_id=1381818051]
 layout_mode = 2

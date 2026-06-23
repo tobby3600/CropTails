@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var save_game_button: Button = $MarginContainer/VBoxContainer/SaveGameButton
 @onready var resume_game_button: Button = $MarginContainer/VBoxContainer/ResumeGameButton
 @onready var settings_panel: PanelContainer = $SettingsPanel
+@onready var help_panel: PanelContainer = $HelpPanel
 
 func _ready() -> void:
 	save_game_button.disabled = !SaveGameManager.allow_save_game
@@ -12,6 +13,7 @@ func _ready() -> void:
 	resume_game_button.focus_mode = Control.FOCUS_ALL if SaveGameManager.allow_save_game else Control.FOCUS_NONE
 
 	settings_panel.closed.connect(_on_settings_closed)
+	help_panel.closed.connect(_on_help_closed)
 
 func _on_start_game_button_pressed() -> void:
 	GameManager.game_menu_screen_instance = null
@@ -33,3 +35,9 @@ func _on_settings_button_pressed() -> void:
 
 func _on_settings_closed() -> void:
 	settings_panel.hide()
+
+func _on_help_button_pressed() -> void:
+	help_panel.show()
+
+func _on_help_closed() -> void:
+	help_panel.hide()

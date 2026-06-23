@@ -6,6 +6,7 @@ extends PanelContainer
 @onready var sfx_slider: HSlider = $MarginContainer/VBoxContainer/ScrollContainer/Content/SfxVolume/HSlider
 @onready var sfx_percent_label: Label = $MarginContainer/VBoxContainer/ScrollContainer/Content/SfxVolume/PercentLabel
 @onready var language_option: OptionButton = $MarginContainer/VBoxContainer/ScrollContainer/Content/Language/OptionButton
+@onready var auto_torch_check: CheckBox = $MarginContainer/VBoxContainer/ScrollContainer/Content/AutoTorch/CheckBox
 
 signal closed
 
@@ -20,11 +21,15 @@ func _ready() -> void:
 	# 初始化语言选项
 	_setup_language_option()
 
+	# 初始化火把自动开关
+	auto_torch_check.button_pressed = SettingsManager.get_value("general", "auto_torch", true)
+
 	# 连接信号
 	music_slider.value_changed.connect(_on_music_slider_changed)
 	sfx_slider.value_changed.connect(_on_sfx_slider_changed)
 	close_button.pressed.connect(_on_close_pressed)
 	language_option.item_selected.connect(_on_language_selected)
+	auto_torch_check.toggled.connect(_on_auto_torch_toggled)
 
 func _setup_language_option() -> void:
 	language_option.clear()
@@ -58,6 +63,9 @@ func _on_language_selected(index: int) -> void:
 			SettingsManager.set_value("general", "language", "en")
 		1:
 			SettingsManager.set_value("general", "language", "zh_CN")
+
+func _on_auto_torch_toggled(button_pressed: bool) -> void:
+	SettingsManager.set_value("general", "auto_torch", button_pressed)
 
 func _on_close_pressed() -> void:
 	closed.emit()

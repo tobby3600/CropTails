@@ -4,6 +4,14 @@
 [ext_resource type="TileSet" uid="uid://dg4bemnapdio3" path="res://tilesets/game_tile_set.tres" id="1_4xwjs"]
 [ext_resource type="PackedScene" uid="uid://d3lh7yuxa3u1w" path="res://scenes/characters/player/player.tscn" id="2_2m7t0"]
 [ext_resource type="PackedScene" uid="uid://cy2btaa13mldn" path="res://scenes/ui/game_screen.tscn" id="3_phi53"]
+[ext_resource type="PackedScene" uid="uid://dyn63t6513i5j" path="res://scenes/objects/rocks/rock.tscn" id="5_30dha"]
+[ext_resource type="Shader" uid="uid://d35eapfio2p66" path="res://scenes/objects/rocks/shake.gdshader" id="6_rfbc3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c47tn"]
+resource_local_to_scene = true
+shader = ExtResource("6_rfbc3")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [node name="TestSceneTilemap" type="Node2D" unique_id=1122159638]
 
@@ -24,3 +32,7 @@ position = Vector2(262, 204)
 current_tool = 3
 
 [node name="GameScreen" parent="." unique_id=1597540891 instance=ExtResource("3_phi53")]
+
+[node name="Rock" parent="." unique_id=1673310834 instance=ExtResource("5_30dha")]
+material = SubResource("ShaderMaterial_c47tn")
+position = Vector2(209, 196)

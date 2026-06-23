@@ -41,7 +41,7 @@ func on_game_time(time:float) -> void:
 
 	var sample_value : float = 0.5 * (sin(day_time - PI*0.5) + 1.0)
 	# 将时间从sin()的[-1,1]映射到渐变条的[0,1]
-	# 渐变条上颜色的读取顺序是”0→12 点从左到右，12→24 点从右到左”的来回扫描
+	# 渐变条上颜色的读取顺序是"0→12 点从左到右，12→24 点从右到左"的来回扫描
 	color = day_night_gradient_texture.gradient.sample(sample_value)
 
 	# 将 day_time 映射到 0-1 范围用于曲线采样
@@ -51,23 +51,3 @@ func on_game_time(time:float) -> void:
 	# 使用曲线控制光照强度
 	sun_light.energy = sun_light_curve.sample(curve_sample)
 	moon_light.energy = moon_light_curve.sample(curve_sample)
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

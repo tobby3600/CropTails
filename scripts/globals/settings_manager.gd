@@ -1,6 +1,7 @@
 extends Node
 
 signal settings_changed(category: String, key: String, value: Variant)
+signal language_changed
 
 const SETTINGS_PATH := "user://settings.ini"
 
@@ -11,6 +12,7 @@ var settings := {
 	},
 	"general": {
 		"language": "en",
+		"auto_torch": true,
 	}
 }
 
@@ -41,6 +43,7 @@ func apply_setting(category: String, key: String, value) -> void:
 			match key:
 				"language":
 					TranslationServer.set_locale(value)
+					language_changed.emit()
 
 func apply_all() -> void:
 	for category in settings:

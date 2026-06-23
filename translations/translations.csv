@@ -4,8 +4,121 @@ START_GAME,START GAME,开始游戏
 SAVE_GAME,SAVE CURRENT GAME,保存当前游戏
 RESUME,RESUME,继续游戏
 EXIT,EXIT,退出
+HELP,Help,帮助
 GENERAL,General,通用
 LANGUAGE,Language,语言
+AUTO TORCH,Auto Torch,自动开启火把
 SOUND,Sound,音频
 BGM,BGM,背景音量
 SFX,SFX,音效音量
+CONTROLS,Controls,操控
+FARMING,Farming,种植
+ANIMALS,Animals,动物
+ABOUT,About,关于
+HELP_CONTROLS,"[b]Movement[/b]
+WASD - Move character
+
+[b]Interaction[/b]
+E - Talk to NPCs / Interact
+Left Click - Use tool / Plant / Till
+Ctrl + Left Click - Remove tilled dirt
+
+[b]Tools[/b]
+K - Toggle torch
+P - Save game
+
+[b]Menu[/b]
+Esc - Open game menu","[b]移动[/b]
+WASD - 移动角色
+
+[b]交互[/b]
+E - 与NPC对话 / 交互
+左键 - 使用工具 / 种植 / 锄地
+Ctrl + 左键 - 移除耕地
+
+[b]工具[/b]
+K - 开关火把
+P - 保存游戏
+
+[b]菜单[/b]
+Esc - 打开游戏菜单"
+HELP_FARMING,"[b]Getting Started[/b]
+1. Talk to the Guide to get seeds
+2. Use the hoe to till soil
+3. Plant seeds on tilled soil
+4. Water your crops (only need once for each)
+
+[b]Tools[/b]
+• Axe - Chop trees / Mine stones
+• Hoe - Till the ground
+• Watering Can - Water crops
+• Seeds - Plant corn or tomatoes
+
+[b]Harvesting[/b]
+• Wait for crops to mature
+• Click on mature crops to harvest
+• Feed crops to animals for eggs/milk","[b]开始种植[/b]
+1. 与向导对话获取种子
+2. 使用锄头耕地
+3. 在耕地上种植种子
+4. 给作物浇水(每个作物只需要浇一次)
+
+[b]工具[/b]
+• 斧头 - 砍树/挖石头
+• 锄头 - 耕地
+• 水壶 - 浇水
+• 种子 - 种植玉米或番茄
+
+[b]收获[/b]
+• 等待作物成熟
+• 点击成熟作物收获
+• 将作物喂给动物获取鸡蛋/牛奶"
+HELP_ANIMALS,"[b]Feeding Animals[/b]
+• Collect crops from your farm
+• Approach the pasture box
+• Press E to open the menu
+• Select 'Yes' to feed animals
+
+[b]Rewards[/b]
+• Chickens produce eggs
+• Cows produce milk
+• Collect items automatically
+","[b]喂养动物[/b]
+• 从农场收集作物
+• 靠近牧场箱
+• 按 E 打开菜单
+• 选择""是""喂养动物
+
+[b]奖励[/b]
+• 鸡产出鸡蛋
+• 牛产出牛奶
+• 自动收集物品"
+HELP_ABOUT,"[b]CropTails[/b]
+Work in process
+By [url=https://github.com/tobby3600/CropTails]tobby[/url]
+
+[b]Description[/b]
+A farm simulation game inspired by Stardew Valley. Grow crops, raise animals, and build your dream farm!
+
+[b]Development[/b]
+Built with Godot Engine 4.7
+Tutorial by [url=https://www.youtube.com/watch?v=Ht7pO6gGhwk]YouTube Guide[/url]
+
+[b]Credits[/b]
+• Art: Sprout Lands Asset Pack
+• Font: Pixel Font
+• Music: On the Farm","[b]CropTails[/b]
+开发中
+By [url=https://github.com/tobby3600/CropTails]tobby[/url]
+
+[b]游戏简介[/b]
+一款受星露谷物语启发的农场模拟游戏。种植作物，饲养动物，建造你的梦想农场！
+
+[b]开发信息[/b]
+使用 Godot 引擎 4.7 开发
+教程来源：[url=https://www.youtube.com/watch?v=Ht7pO6gGhwk]YouTube 教程[/url]
+
+[b]致谢[/b]
+• 美术：Sprout Lands 素材包
+• 字体：Pixel Font
+• 音乐：On the Farm"

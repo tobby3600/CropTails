@@ -415,6 +415,19 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_shadow"]
+offsets = PackedFloat32Array(0, 0.5365854, 1)
+colors = PackedColorArray(0, 0, 0, 0.4, 0, 0, 0, 0.2, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_shadow"]
+gradient = SubResource("Gradient_shadow")
+width = 32
+height = 16
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=191363853 groups=["player"]]
 y_sort_enabled = true
 collision_layer = 2
@@ -477,5 +490,14 @@ debug_color = Color(0.902533, 0.121847, 0.693156, 0.42)
 current = true
 
 [node name="TorchLight" type="PointLight2D" parent="." unique_id=2130270036]
+position = Vector2(0, -5)
 color = Color(1, 0.8, 0.5, 1)
+energy = 0.85
+shadow_color = Color(0, 0, 0, 0.078431375)
+shadow_filter = 1
+shadow_filter_smooth = 0.2
 texture = SubResource("GradientTexture2D_torch")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=143288208]
+scale = Vector2(0.625, 0.375)
+texture = SubResource("GradientTexture2D_shadow")

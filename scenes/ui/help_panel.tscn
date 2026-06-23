@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://cy2822xemsonv"]
+
+[ext_resource type="Script" uid="uid://c00lja6fe47yh" path="res://scenes/ui/help_panel.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://buixqjwfxmeod" path="res://scenes/ui/game_ui_theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" uid="uid://05id67wdupiw" path="res://assets/ui/basic_ui_sprites.png" id="3_i3lpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_close"]
+atlas = ExtResource("3_i3lpr")
+region = Rect2(770, 226, 12, 12)
+
+[node name="HelpPanel" type="PanelContainer" unique_id=327745023]
+custom_minimum_size = Vector2(350, 280)
+offset_right = 350.0
+offset_bottom = 280.0
+theme = ExtResource("2_theme")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("1_script")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1656874399]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=233242336]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1163085260]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Header" unique_id=1816561010]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HELP"
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/Header" unique_id=102568784]
+layout_mode = 2
+theme_type_variation = &"DayAndNightButton"
+icon = SubResource("AtlasTexture_close")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=461517958]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer" unique_id=1081916265]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 0
+
+[node name="Controls" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=520538546]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+metadata/_tab_index = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TabContainer/Controls" unique_id=702603463]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="Farming" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=355595299]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+metadata/_tab_index = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TabContainer/Farming" unique_id=1787987905]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="Animals" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1702501091]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+metadata/_tab_index = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TabContainer/Animals" unique_id=431286847]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="About" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1768425388]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+metadata/_tab_index = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TabContainer/About" unique_id=1163989578]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true

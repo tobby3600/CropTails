@@ -6,10 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://d2ab0ln2xt7fa" path="res://scenes/components/mouse_cursor_component.tscn" id="2_jk4o3"]
 [ext_resource type="Texture2D" uid="uid://bspsifpgawjvh" path="res://assets/ui/mouse_icon.png" id="3_vrg0q"]
 [ext_resource type="PackedScene" uid="uid://dyaly2vllqixh" path="res://scenes/ui/settings_panel.tscn" id="4_settings"]
+[ext_resource type="PackedScene" path="res://scenes/ui/help_panel.tscn" id="5_help"]
 [ext_resource type="Texture2D" uid="uid://05id67wdupiw" path="res://assets/ui/basic_ui_sprites.png" id="6_16g87"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_16g87"]
+load_path = "res://.godot/imported/basic_ui_sprites.png-f1365ff47f1f008f610f3c558cf47256.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl6il"]
+atlas = SubResource("CompressedTexture2D_16g87")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2wrn"]
+atlas = SubResource("AtlasTexture_dl6il")
+region = Rect2(675, 193, 10, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nhbvg"]
 atlas = ExtResource("6_16g87")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16g87"]
+atlas = SubResource("AtlasTexture_nhbvg")
 region = Rect2(658, 194, 12, 12)
 
 [node name="GameMenuScreen" type="CanvasLayer" unique_id=311031426]
@@ -72,18 +86,35 @@ layout_mode = 2
 theme_type_variation = &"GameMenuButton"
 text = "EXIT"
 
-[node name="SettingsButton" type="Button" parent="." unique_id=748326432]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 40.0
-grow_horizontal = 0
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=518508397]
+custom_minimum_size = Vector2(100, 40)
+offset_left = 510.0
+offset_top = 20.0
+offset_right = 610.0
+offset_bottom = 60.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=236889709]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HelpButton" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=1406965439]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
 theme = ExtResource("1_5slcd")
 theme_type_variation = &"DayAndNightButton"
-icon = SubResource("AtlasTexture_nhbvg")
+icon = SubResource("AtlasTexture_t2wrn")
+icon_alignment = 1
+expand_icon = true
+
+[node name="SettingsButton" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=748326432]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme = ExtResource("1_5slcd")
+theme_type_variation = &"DayAndNightButton"
+icon = SubResource("AtlasTexture_16g87")
 icon_alignment = 1
 expand_icon = true
 
@@ -101,8 +132,23 @@ offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="HelpPanel" parent="." instance=ExtResource("5_help")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -125.0
+offset_right = 150.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="_on_save_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeGameButton" to="." method="_on_resume_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
