@@ -1,0 +1,99 @@
+{
+	"axe": {
+		"max_stack": 1,
+		"display_name": "Axe",
+		"display_name_zh_CN": "斧头",
+		"description": "Used to chop down trees.",
+		"description_zh_CN": "用于砍伐树木。",
+		"is_tool": true
+	},
+	"tilling": {
+		"max_stack": 1,
+		"display_name": "Hoe",
+		"display_name_zh_CN": "锄头",
+		"description": "Used to till soil for planting.",
+		"description_zh_CN": "用于耕地以便播种。",
+		"is_tool": true
+	},
+	"watering_can": {
+		"max_stack": 1,
+		"display_name": "Watering Can",
+		"display_name_zh_CN": "水壶",
+		"description": "Used to water crops.",
+		"description_zh_CN": "用于给作物浇水。",
+		"is_tool": true
+	},
+	"corn_seeds": {
+		"max_stack": 1,
+		"display_name": "Corn Seeds",
+		"display_name_zh_CN": "玉米种子",
+		"description": "Plant these to grow corn.",
+		"description_zh_CN": "种植后可以长出玉米。",
+		"is_tool": true
+	},
+	"tomato_seeds": {
+		"max_stack": 1,
+		"display_name": "Tomato Seeds",
+		"display_name_zh_CN": "番茄种子",
+		"description": "Plant these to grow tomatoes.",
+		"description_zh_CN": "种植后可以长出番茄。",
+		"is_tool": true
+	},
+	"log": {
+		"max_stack": 99,
+		"display_name": "Log",
+		"display_name_zh_CN": "原木",
+		"description": "A sturdy log. Can be used for building or crafting.",
+		"description_zh_CN": "结实的原木，可用于建造或制作。",
+		"icon_atlas": "res://assets/game/objects/basic_tools_and_meterials.png",
+		"icon_region": [16, 16, 16, 16],
+		"drop_scene": "res://scenes/objects/trees/log.tscn"
+	},
+	"stone": {
+		"max_stack": 99,
+		"display_name": "Stone",
+		"display_name_zh_CN": "石头",
+		"description": "A hard stone. Useful for construction.",
+		"description_zh_CN": "坚硬的石头，用于建筑。",
+		"icon_atlas": "res://assets/game/objects/basic_tools_and_meterials.png",
+		"icon_region": [0, 16, 16, 16],
+		"drop_scene": "res://scenes/objects/rocks/stone.tscn"
+	},
+	"corn": {
+		"max_stack": 99,
+		"display_name": "Corn",
+		"display_name_zh_CN": "玉米",
+		"description": "Freshly harvested corn. Can be eaten or fed to animals.",
+		"description_zh_CN": "新鲜收获的玉米，可食用或喂给动物。",
+		"icon_atlas": "res://assets/game/objects/basic_plants.png",
+		"icon_region": [80, 0, 16, 16],
+		"drop_scene": "res://scenes/objects/plants/corn_harvest.tscn"
+	},
+	"tomato": {
+		"max_stack": 99,
+		"display_name": "Tomato",
+		"display_name_zh_CN": "番茄",
+		"description": "A ripe tomato. Can be eaten or fed to animals.",
+		"description_zh_CN": "成熟的番茄，可食用或喂给动物。",
+		"icon_atlas": "res://assets/game/objects/basic_plants.png",
+		"icon_region": [80, 16, 16, 16],
+		"drop_scene": "res://scenes/objects/plants/tomato_harvest.tscn"
+	},
+	"egg": {
+		"max_stack": 99,
+		"display_name": "Egg",
+		"display_name_zh_CN": "鸡蛋",
+		"description": "A fresh egg from a happy chicken.",
+		"description_zh_CN": "快乐小鸡下的新鲜鸡蛋。",
+		"icon_texture": "res://assets/game/objects/egg_item.png"
+	},
+	"milk": {
+		"max_stack": 99,
+		"display_name": "Milk",
+		"display_name_zh_CN": "牛奶",
+		"description": "Fresh milk from a happy cow.",
+		"description_zh_CN": "快乐奶牛产的新鲜牛奶。",
+		"icon_atlas": "res://assets/game/objects/simple_milk_and_grass_item.png",
+		"icon_region": [32, 0, 16, 16]
+	}
+}

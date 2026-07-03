@@ -35,7 +35,7 @@ func save_node_data() -> void:
 				game_data_resource.save_data_nodes.append(save_final_resource)
 	
 	game_data_resource.game_time = DayAndNightCycleManager.time
-	game_data_resource.inventory = InventoryManager.inventory
+	game_data_resource.inventory_slots = InventoryManager.serialize_slots()
 	game_data_resource.dialogue_states = GameDialogueManager.dialogue_states.duplicate()
 	# 直接在序列化前加入需要保存的少量数据
 
@@ -73,10 +73,11 @@ func load_game() -> void:
 	
 	print("Load time:",game_data_resource.game_time)
 	DayAndNightCycleManager.time = game_data_resource.game_time
-	var inventory = game_data_resource.inventory.duplicate(true)
-	print("Load Inventory:",inventory)
-	InventoryManager.inventory = inventory
-	# 复制以防止后续保存不了修改
+
+	InventoryManager.deserialize_slots(game_data_resource.inventory_slots)
+	print("Load Inventory Slots: ", InventoryManager.SLOT_COUNT, " slots")
+	InventoryManager.dump_slots()
+
 	InventoryManager.inventory_changed.emit()
 	# 手动更新库存UI
 

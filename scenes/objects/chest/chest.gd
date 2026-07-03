@@ -54,29 +54,27 @@ func on_feed_the_animals() -> void:
 		trigger_feed_harvest("tomato",tomato_harvest_scene)
 
 func trigger_feed_harvest(inventory_item: String, scene: Resource) -> void:
-	var inventory : Dictionary = InventoryManager.inventory
-	if !inventory.has(inventory_item):
+	var item_count = InventoryManager.get_item_count(inventory_item)
+	if item_count <= 0:
 		return
-	
-	var inventory_item_count = inventory[inventory_item]
-	
-	for index in inventory_item_count:
+
+	for index in item_count:
 		var harvest_instance = scene.instantiate() as Node2D
 		harvest_instance.global_position = Vector2(global_position.x,global_position.y - food_drop_height)
 		get_tree().root.add_child(harvest_instance)
-		
+
 		var target_position = global_position
 		var time_delay = randf_range(0.5,2.0)
 		await get_tree().create_timer(time_delay).timeout
-		
+
 		var tween = get_tree().create_tween()
 		tween.tween_property(harvest_instance, "position", target_position, 1.0)
 		# 飞向动画
 		tween.tween_property(harvest_instance, "scale", Vector2(0.5,0.5) , 1.0)
 		# 缩小动画
 		tween.tween_callback(harvest_instance.queue_free)
-		
-		InventoryManager.remove_collectable(inventory_item)
+
+		InventoryManager.remove_item(inventory_item, 1)
 
 func on_food_received(area:Area2D) -> void:
 	call_deferred("add_reward_scene")

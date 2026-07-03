@@ -5,6 +5,6 @@ extends Resource
 @export var save_data_nodes : Array[NodeDataResource]
 
 @export var game_time: float = 0.0
-@export var inventory: Dictionary = {}
+@export var inventory_slots: Array = []
 @export var dialogue_states: Dictionary = {}
-# 对时间、库存和对话状态的简易存储
+# 对时间、库存槽位和对话状态的简易存储

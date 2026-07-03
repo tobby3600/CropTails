@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/backpack_slot/backpack_slot.gd" id="1_slot"]
+
+[sub_resource type="AtlasTexture" id="lock_atlas"]
+# 锁图标占位 — 使用一个简单的 X 符号纹理，后续替换为实际锁图标
+# 目前先用空纹理，运行时通过代码叠加显示
+region = Rect2(0, 0, 16, 16)
+
+[node name="BackpackSlot" type="PanelContainer"]
+custom_minimum_size = Vector2(32, 32)
+theme_type_variation = &"InventoryItemPanel"
+script = ExtResource("1_slot")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="CountLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "0"
+
+[node name="LockOverlay" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch_mode = 5
+modulate = Color(1, 1, 1, 0.5)

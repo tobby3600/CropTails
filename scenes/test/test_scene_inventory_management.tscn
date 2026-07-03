@@ -27,7 +27,7 @@ tile_set = ExtResource("1_kxmxa")
 position = Vector2(262, 204)
 current_tool = 3
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1600198783]
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1600198783]
 
 [node name="Egg" parent="." unique_id=1208631065 instance=ExtResource("3_gqv46")]
 position = Vector2(315, 193)
