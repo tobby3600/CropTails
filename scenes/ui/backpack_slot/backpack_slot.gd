@@ -1,6 +1,6 @@
 class_name BackpackSlot
 extends PanelContainer
-# 背包槽位控件 — 支持拖拽交换和锁定功能
+# 背包槽位控件 — 支持拖拽交换、锁定功能和物品悬停提示
 
 @export var slot_index: int = -1
 @export var is_locked: bool = false
@@ -9,10 +9,30 @@ extends PanelContainer
 @onready var count_label: Label = $CountLabel
 @onready var lock_overlay: TextureRect = $LockOverlay
 
+var _tooltip: ItemTooltip
+
 
 func _ready() -> void:
 	InventoryManager.inventory_changed.connect(_on_inventory_changed)
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
 	_update_display()
+
+
+func set_tooltip(tooltip: ItemTooltip) -> void:
+	_tooltip = tooltip
+
+
+func _on_mouse_entered() -> void:
+	if _tooltip:
+		var slot = InventoryManager.get_slot(slot_index)
+		if slot and not slot.is_empty():
+			_tooltip.show_for_item(slot.item_id)
+
+
+func _on_mouse_exited() -> void:
+	if _tooltip:
+		_tooltip.hide_tooltip()
 
 
 func _on_inventory_changed() -> void:

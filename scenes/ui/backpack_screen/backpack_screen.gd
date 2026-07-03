@@ -2,8 +2,10 @@ extends CanvasLayer
 # 背包界面 — 按 I 键打开的覆盖层，包含选项卡：背包 / 预留1 / 预留2
 
 const BackpackSlotScene = preload("res://scenes/ui/backpack_slot/backpack_slot.tscn")
+const ItemTooltipScene = preload("res://scenes/ui/item_tooltip/item_tooltip.tscn")
 
 var _all_slots: Array[BackpackSlot] = []
+var _tooltip: ItemTooltip
 
 
 func _ready() -> void:
@@ -63,6 +65,12 @@ func _ready() -> void:
 	# 丢弃区标签
 	var discard_label = discard_zone.get_node("Label")
 	discard_label.text = tr("DISCARD")
+
+	# 创建 ItemTooltip 并传递给所有槽位
+	_tooltip = ItemTooltipScene.instantiate()
+	add_child(_tooltip)
+	for slot in _all_slots:
+		slot.set_tooltip(_tooltip)
 
 
 func _on_background_input(event: InputEvent) -> void:
