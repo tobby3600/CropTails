@@ -27,6 +27,15 @@ var _tool_slot_map: Dictionary = {
 	DataTypes.Tools.PlantTomato: 4,
 }
 
+# === 工具枚举 → item_id（与 items.json 的 key 对应） ===
+var _tool_item_map: Dictionary = {
+	DataTypes.Tools.Axewood:     "axe",
+	DataTypes.Tools.TillGround:  "tilling",
+	DataTypes.Tools.WaterCrops:  "watering_can",
+	DataTypes.Tools.PlantCorn:   "corn_seeds",
+	DataTypes.Tools.PlantTomato: "tomato_seeds",
+}
+
 
 func _ready() -> void:
 	# 初始化所有槽位为 null
@@ -34,8 +43,11 @@ func _ready() -> void:
 	for i in SLOT_COUNT:
 		slots[i] = null
 
-	# 从 CSV 加载物品注册表
+	# 从 JSON 加载物品注册表
 	_load_item_registry()
+
+	# 将 5 个工具按顺序放入工具槽位 0-4（槽位 5-8 为预留空位）
+	_init_tools()
 
 
 func _load_item_registry() -> void:
@@ -268,6 +280,17 @@ func get_tool_slot_index(tool: DataTypes.Tools) -> int:
 	return _tool_slot_map.get(tool, -1)
 
 
+## 启动时初始化工具栏：按 _tool_slot_map 的顺序把工具放入固定槽位
+## 默认携带 level/damage 自定义属性，供后续工具升级功能使用
+func _init_tools() -> void:
+	for tool in _tool_item_map:
+		var item_id: String = _tool_item_map[tool]
+		if not item_registry.has(item_id):
+			push_error("InventoryManager: 工具物品未在 items.json 中注册: ", item_id)
+			continue
+		set_tool(tool, item_id, {"level": 1, "damage": 1})
+
+
 # ============================================================
 #  序列化（存档用）
 # ============================================================
@@ -285,8 +308,35 @@ func serialize_slots() -> Array:
 func deserialize_slots(data: Array) -> void:
 	slots.resize(SLOT_COUNT)
 	for i in SLOT_COUNT:
+		# 工具槽位（0-8）由 deserialize_tool_slots() 单独恢复，此处跳过
+		if i >= TOOL_SLOT_START and i <= TOOL_SLOT_END:
+			continue
 		if i < data.size() and data[i] != null:
 			slots[i] = InventorySlot.from_dict(data[i])
+		else:
+			slots[i] = null
+
+
+## 序列化工具槽位（0-8）— 单独存储，custom_data 包含等级（level）和伤害（damage）等升级信息
+func serialize_tool_slots() -> Array:
+	var result := []
+	for i in range(TOOL_SLOT_START, TOOL_SLOT_END + 1):
+		if slots[i] and not slots[i].is_empty():
+			result.append(slots[i].to_dict())
+		else:
+			result.append(null)
+	return result
+
+
+## 反序列化工具槽位（0-8）— 覆盖 _init_tools() 写入的默认工具数据
+## 存档无工具数据时（旧存档）保留默认等级和伤害
+func deserialize_tool_slots(data: Array) -> void:
+	if data.is_empty():
+		return
+	for i in range(TOOL_SLOT_START, TOOL_SLOT_END + 1):
+		var data_index := i - TOOL_SLOT_START
+		if data_index < data.size() and data[data_index] != null:
+			slots[i] = InventorySlot.from_dict(data[data_index])
 		else:
 			slots[i] = null
 

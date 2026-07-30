@@ -36,6 +36,7 @@ func save_node_data() -> void:
 	
 	game_data_resource.game_time = DayAndNightCycleManager.time
 	game_data_resource.inventory_slots = InventoryManager.serialize_slots()
+	game_data_resource.tool_slots = InventoryManager.serialize_tool_slots()
 	game_data_resource.dialogue_states = GameDialogueManager.dialogue_states.duplicate()
 	# 直接在序列化前加入需要保存的少量数据
 
@@ -75,6 +76,8 @@ func load_game() -> void:
 	DayAndNightCycleManager.time = game_data_resource.game_time
 
 	InventoryManager.deserialize_slots(game_data_resource.inventory_slots)
+	# 工具槽位单独恢复：覆盖 _init_tools() 的默认等级/伤害（旧存档无此字段时保留默认）
+	InventoryManager.deserialize_tool_slots(game_data_resource.tool_slots)
 	print("Load Inventory Slots: ", InventoryManager.SLOT_COUNT, " slots")
 	InventoryManager.dump_slots()
 

@@ -37,7 +37,7 @@ func _ready() -> void:
 	var item_grid = item_area.get_node("ItemGrid")
 	var discard_zone = tool_column.get_node("DiscardZone")
 
-	# 创建工具栏槽位网格（7个，锁定，2列布局）
+	# 创建工具栏槽位网格（9个：5工具 + 4预留，锁定，2列布局）
 	var tool_grid = GridContainer.new()
 	tool_grid.columns = 2
 	tool_grid.add_theme_constant_override("h_separation", 2)

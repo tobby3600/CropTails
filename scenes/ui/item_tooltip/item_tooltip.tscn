@@ -25,3 +25,25 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 10
 text = "Null Description"
 autowrap_mode = 3
+
+[node name="StatsBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StackLabel" type="Label" parent="VBoxContainer/StatsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "Stack"
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer/StatsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 9
+text = "Lv"
+
+[node name="DamageLabel" type="Label" parent="VBoxContainer/StatsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.65, 0.5, 1)
+theme_override_font_sizes/font_size = 9
+text = "Dmg"

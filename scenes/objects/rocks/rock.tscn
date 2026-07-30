@@ -36,7 +36,7 @@ position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_ly6dh")
 
 [node name="HurtComponent" parent="." unique_id=755244110 instance=ExtResource("3_ipwki")]
-tool = 1
+tool_damage_multipliers = { 1: 1.0 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=203710109]
 shape = SubResource("CircleShape2D_5m6r7")

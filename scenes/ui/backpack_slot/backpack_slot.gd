@@ -27,7 +27,7 @@ func _on_mouse_entered() -> void:
 	if _tooltip:
 		var slot = InventoryManager.get_slot(slot_index)
 		if slot and not slot.is_empty():
-			_tooltip.show_for_item(slot.item_id)
+			_tooltip.show_for_item(slot.item_id, slot.custom_data)
 
 
 func _on_mouse_exited() -> void:
@@ -52,8 +52,12 @@ func _update_display() -> void:
 			texture_rect.show()
 		else:
 			texture_rect.hide()
-		count_label.text = str(slot.count)
-		count_label.show()
+		# 数量大于 1 才显示数字（工具等 count=1 的不显示）
+		if slot.count > 1:
+			count_label.text = str(slot.count)
+			count_label.show()
+		else:
+			count_label.hide()
 	else:
 		texture_rect.hide()
 		count_label.text = ""

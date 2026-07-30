@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bjfhal28msvfr"]
 
+[ext_resource type="Theme" uid="uid://buixqjwfxmeod" path="res://scenes/ui/game_ui_theme.tres" id="1_420p5"]
 [ext_resource type="Script" uid="uid://bjgyaw6h8yeas" path="res://scenes/ui/backpack_slot/backpack_slot.gd" id="1_slot"]
 
 [node name="BackpackSlot" type="PanelContainer" unique_id=1992332898]
 custom_minimum_size = Vector2(32, 32)
+theme = ExtResource("1_420p5")
 theme_type_variation = &"InventoryItemPanel"
 script = ExtResource("1_slot")
 

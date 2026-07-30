@@ -61,6 +61,9 @@ metadata/_tab_index = 0
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
+text = "Test
+TestTest
+123123"
 
 [node name="Farming" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=355595299]
 visible = false

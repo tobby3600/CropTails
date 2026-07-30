@@ -20,6 +20,9 @@ CONTROLS,Controls,操控
 FARMING,Farming,种植
 ANIMALS,Animals,动物
 ABOUT,About,关于
+TOOLTIP_MAX_STACK,Max Stack,堆叠上限
+TOOLTIP_LEVEL,Level,等级
+TOOLTIP_DAMAGE,Damage,伤害
 HELP_CONTROLS,"[b]Movement[/b]
 WASD - Move character
 

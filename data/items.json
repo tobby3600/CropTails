@@ -5,6 +5,8 @@
 		"display_name_zh_CN": "斧头",
 		"description": "Used to chop down trees.",
 		"description_zh_CN": "用于砍伐树木。",
+		"icon_atlas": "res://assets/game/objects/basic_tools_and_meterials.png",
+		"icon_region": [16, 0, 16, 16],
 		"is_tool": true
 	},
 	"tilling": {
@@ -13,6 +15,8 @@
 		"display_name_zh_CN": "锄头",
 		"description": "Used to till soil for planting.",
 		"description_zh_CN": "用于耕地以便播种。",
+		"icon_atlas": "res://assets/game/objects/basic_tools_and_meterials.png",
+		"icon_region": [32, 0, 16, 16],
 		"is_tool": true
 	},
 	"watering_can": {
@@ -21,6 +25,8 @@
 		"display_name_zh_CN": "水壶",
 		"description": "Used to water crops.",
 		"description_zh_CN": "用于给作物浇水。",
+		"icon_atlas": "res://assets/game/objects/basic_tools_and_meterials.png",
+		"icon_region": [0, 0, 16, 16],
 		"is_tool": true
 	},
 	"corn_seeds": {
@@ -29,6 +35,8 @@
 		"display_name_zh_CN": "玉米种子",
 		"description": "Plant these to grow corn.",
 		"description_zh_CN": "种植后可以长出玉米。",
+		"icon_atlas": "res://assets/game/objects/basic_plants.png",
+		"icon_region": [0, 0, 16, 16],
 		"is_tool": true
 	},
 	"tomato_seeds": {
@@ -37,6 +45,8 @@
 		"display_name_zh_CN": "番茄种子",
 		"description": "Plant these to grow tomatoes.",
 		"description_zh_CN": "种植后可以长出番茄。",
+		"icon_atlas": "res://assets/game/objects/basic_plants.png",
+		"icon_region": [0, 16, 16, 16],
 		"is_tool": true
 	},
 	"log": {

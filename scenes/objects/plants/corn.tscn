@@ -32,7 +32,7 @@ frame = 1
 
 [node name="HurtComponent" parent="." unique_id=1390477913 instance=ExtResource("2_aphyd")]
 position = Vector2(0, -4)
-tool = 3
+tool_damage_multipliers = { 3: 1.0 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=689190354]
 position = Vector2(0, 3)

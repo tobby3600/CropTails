@@ -6,5 +6,6 @@ extends Resource
 
 @export var game_time: float = 0.0
 @export var inventory_slots: Array = []
+@export var tool_slots: Array = []
 @export var dialogue_states: Dictionary = {}
-# 对时间、库存槽位和对话状态的简易存储
+# 对时间、库存槽位、工具槽位（含等级/伤害）和对话状态的简易存储

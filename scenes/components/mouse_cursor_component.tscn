@@ -1,6 +1,22 @@
 [gd_scene format=3 uid="uid://d2ab0ln2xt7fa"]
 
 [ext_resource type="Script" uid="uid://bnyegpufnm2rv" path="res://scenes/components/mouse_cursor_component.gd" id="1_eif7r"]
+[ext_resource type="Texture2D" uid="uid://bspsifpgawjvh" path="res://assets/ui/mouse_icon.png" id="2_bymwm"]
+[ext_resource type="Texture2D" uid="uid://05id67wdupiw" path="res://assets/ui/basic_ui_sprites.png" id="3_b2t6b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24qrs"]
+atlas = ExtResource("2_bymwm")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxswa"]
+atlas = ExtResource("3_b2t6b")
+region = Rect2(401, 129, 14, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq72b"]
+atlas = ExtResource("3_b2t6b")
+region = Rect2(418, 130, 13, 12)
 
 [node name="MouseCursorComponent" type="Node" unique_id=431577553]
 script = ExtResource("1_eif7r")
+cursor_component_texture = SubResource("AtlasTexture_24qrs")
+cursor_can_drop_texture = SubResource("AtlasTexture_fxswa")
+cursor_forbidden_texture = SubResource("AtlasTexture_vq72b")

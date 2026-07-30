@@ -41,7 +41,7 @@ func _on_slot_mouse_entered(slot_index: int) -> void:
 	_hovered_slot_index = slot_index
 	var slot = InventoryManager.get_slot(slot_index)
 	if slot and not slot.is_empty():
-		_tooltip.show_for_item(slot.item_id)
+		_tooltip.show_for_item(slot.item_id, slot.custom_data)
 
 
 func _on_slot_mouse_exited(slot_index: int) -> void:

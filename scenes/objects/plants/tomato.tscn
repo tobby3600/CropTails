@@ -32,7 +32,7 @@ frame = 7
 [node name="GrowthCycleComponent" parent="." unique_id=1564795662 instance=ExtResource("4_i4hd5")]
 
 [node name="HurtComponent" parent="." unique_id=1900600980 instance=ExtResource("5_vn5rf")]
-tool = 3
+tool_damage_multipliers = { 3: 1.0 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent" unique_id=1374336560]
 position = Vector2(0, -2)
